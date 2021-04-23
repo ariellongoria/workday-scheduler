@@ -19,9 +19,9 @@ var loadEvents = function () {
 var currentHour = moment().format("H");
 
 for (hour = 9; hour < 18; hour++) {
-    if (currentHour > hour) {
+    if (parseInt(currentHour) > hour) {
         $("#" + hour + " textarea").addClass("past");
-    } else if (currentHour === hour) {
+    } else if (parseInt(currentHour) === hour) {
         $("#" + hour + " textarea").addClass("present");
     } else {
         $("#" + hour + " textarea").addClass("future");
