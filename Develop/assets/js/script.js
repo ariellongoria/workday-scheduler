@@ -32,11 +32,20 @@ loadEvents();
 
 $(".saveBtn").click(function () {
     var parentId = $(this).parent().attr("id");
+    if (events) {
+        for (var i = 0; i < events.length; i++) {
+            if (parentId === events[i].id) {
+                events.splice(i, 1);
+            }
+        }
+    }
     var eventText = $("#" + parentId + " textarea").val();
     newEvent = {
         id: parentId,
         text: eventText,
     };
+
+    events = events || [];
     events.push(newEvent);
 
     saveEvents();
